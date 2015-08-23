@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+
+	<package name="helloworld" namespace="/helloworld" extends="struts-default">
+		<action name="HelloWorld"
+			class="cn.hxex.struts.helloworld.action.HelloWorldAction">
+			<result>/pages/HelloWorld.jsp</result>
+		</action>
+		<!-- Add actions here -->
+	</package>
+
+	<package name="login" namespace="/login" extends="struts-default">
+		<action name="toLogin">
+			<result>/pages/login.jsp</result>
+		</action>
+
+		<action name="doLogin" class="cn.hxex.struts.login.action.LoginAction">
+			<result name="input">/pages/login.jsp</result>
+			<result name="error">/pages/login.jsp</result>
+			<result name="success">/pages/loginsuccess.jsp</result>
+		</action>
+	</package>
+
+	<package name="refresh" namespace="/refresh" extends="struts-default">
+		<action name="toRefresh">
+			<result>/pages/refresh.jsp</result>
+		</action>
+		<action name="doRefresh" class="zw.struts.refresh.action.Refresh">
+			<result name="success">/pages/RefreshSuccess.jsp</result>
+		</action>
+	</package>
+</struts>
